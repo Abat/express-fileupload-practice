@@ -31,3 +31,13 @@ exports.upload = function(req, res) {
 		res.render('upload', { path: files.upload.name });
 	});
 };
+
+/*
+ * Show all pictures in upload folder.
+ */
+exports.showall = function(req, res) {
+	console.log('Request handler "showall" was called');
+	fs.readdir('uploads/', function(err, files) {
+		res.render('showall', { files: files });
+	});	
+}
